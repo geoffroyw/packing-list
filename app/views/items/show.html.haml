@@ -1,17 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b Item Name:
   = @item.name
 %p
   %b Quantity:
   = @item.quantity
 %p
   %b Original price:
-  = @item.original_price
+  = "#{@item.original_price} #{@item.original_currency}"
 %p
-  %b Original currency:
-  = @item.original_currency
+  %b Replacement Price:
+  = "#{@item.replacement_price} #{@item.replacement_currency}"
 %p
   %b Bought on:
   = @item.bought_on

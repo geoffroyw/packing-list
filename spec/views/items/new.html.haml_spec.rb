@@ -6,7 +6,9 @@ RSpec.describe "items/new", type: :view do
       :name => "MyString",
       :quantity => 1,
       :original_price => 1.5,
-      :original_currency => "MyString"
+      :original_currency => "MyString",
+      :replacement_price => 10,
+      :replacement_currency => 'ReplacementCurr'
     ))
   end
 
@@ -22,6 +24,10 @@ RSpec.describe "items/new", type: :view do
       assert_select "input#item_original_price[name=?]", "item[original_price]"
 
       assert_select "input#item_original_currency[name=?]", "item[original_currency]"
+
+      assert_select "input#item_replacement_price[name=?]", "item[replacement_price]"
+
+      assert_select "input#item_replacement_currency[name=?]", "item[replacement_currency]"
     end
   end
 end

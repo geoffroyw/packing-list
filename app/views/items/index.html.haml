@@ -6,7 +6,7 @@
       %th Name
       %th Quantity
       %th Original price
-      %th Original currency
+      %th Replacement price
       %th Bought on
       %th
       %th
@@ -17,8 +17,8 @@
       %tr
         %td= item.name
         %td= item.quantity
-        %td= item.original_price
-        %td= item.original_currency
+        %td= "#{item.original_price} #{item.original_currency}"
+        %td= "#{item.replacement_price} #{item.replacement_currency}"
         %td= item.bought_on
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
