@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Item:
+  = @item_document.item_id
+%p
+  %b Name:
+  = @item_document.name
+
+= link_to 'Edit', edit_item_document_path(@item_document)
+\|
+= link_to 'Back', item_documents_path

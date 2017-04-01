@@ -1,0 +1,23 @@
+%h1
+  Listing documents for
+  = @item.name
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @item.documents.each do |item_document|
+      %tr
+        %td= item_document.name
+        %td= link_to 'Show', item_document_path(@item, item_document)
+        %td= link_to 'Edit', edit_item_document_path(@item, item_document)
+        %td= link_to 'Destroy', item_document_path(@item,item_document), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Add Document', new_item_document_path
