@@ -9,7 +9,8 @@ RSpec.describe 'items/index', type: :view do
             :original_price => 3.5,
             :original_currency => 'Original Currency',
             :replacement_price => 10.3,
-            :replacement_currency => 'Replacement currency'
+            :replacement_currency => 'Replacement currency',
+            :serial_number => 'serial n'
         ),
         Item.create!(
             :name => 'Item name',
@@ -17,7 +18,8 @@ RSpec.describe 'items/index', type: :view do
             :original_price => 3.5,
             :original_currency => 'Original Currency',
             :replacement_price => 10.3,
-            :replacement_currency => 'Replacement currency'
+            :replacement_currency => 'Replacement currency',
+            :serial_number => 'serial n'
         )
     ])
   end
@@ -28,5 +30,6 @@ RSpec.describe 'items/index', type: :view do
     assert_select 'tr>td', :text => 4.to_s, :count => 2
     assert_select 'tr>td', :text => '3.5 Original Currency'.to_s, :count => 2
     assert_select 'tr>td', :text => '10.3 Replacement currency'.to_s, :count => 2
+    assert_select 'tr>td', :text => 'serial n'.to_s, :count => 2
   end
 end

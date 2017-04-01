@@ -8,7 +8,8 @@ RSpec.describe "items/new", type: :view do
       :original_price => 1.5,
       :original_currency => "MyString",
       :replacement_price => 10,
-      :replacement_currency => 'ReplacementCurr'
+      :replacement_currency => 'ReplacementCurr',
+      :serial_number => 'serial n'
     ))
   end
 
@@ -28,6 +29,8 @@ RSpec.describe "items/new", type: :view do
       assert_select "input#item_replacement_price[name=?]", "item[replacement_price]"
 
       assert_select "input#item_replacement_currency[name=?]", "item[replacement_currency]"
+
+      assert_select "input#item_serial_number[name=?]", "item[serial_number]"
     end
   end
 end

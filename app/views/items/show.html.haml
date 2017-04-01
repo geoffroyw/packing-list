@@ -16,6 +16,11 @@
   %b Bought on:
   = @item.bought_on
 
+%p
+  %b Serial number:
+  = @item.serial_number
+
+
 = link_to 'Edit', edit_item_path(@item)
 \|
 = link_to 'Back', items_path

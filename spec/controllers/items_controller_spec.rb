@@ -103,7 +103,7 @@ RSpec.describe ItemsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        {name: 'new name', replacement_price: 10.5, quantity: 3}
+        {name: 'new name', replacement_price: 10.5, quantity: 3, serial_number: 'serial n'}
       }
 
       it "updates the requested item" do
@@ -113,6 +113,7 @@ RSpec.describe ItemsController, type: :controller do
         expect(item.name).to eq('new name')
         expect(item.replacement_price).to eq(10.5)
         expect(item.quantity).to eq(3)
+        expect(item.serial_number).to eq('serial n')
       end
 
       it "assigns the requested item as @item" do

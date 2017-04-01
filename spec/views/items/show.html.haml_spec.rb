@@ -8,7 +8,8 @@ RSpec.describe "items/show", type: :view do
         :original_price => 3.5,
         :original_currency => "Original Currency",
         :replacement_price => 10,
-        :replacement_currency => "Replacement Currency"
+        :replacement_currency => "Replacement Currency",
+        :serial_number => 'serial n'
     ))
   end
 
@@ -18,5 +19,6 @@ RSpec.describe "items/show", type: :view do
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3.5 Original Currency/)
     expect(rendered).to match(/10.0 Replacement Currency/)
+    expect(rendered).to match(/serial n/)
   end
 end
