@@ -1,10 +1,12 @@
 .row
   .col-md-12
     %h1.text-center Packages
-
--unless @packages
-  = link_to 'To get started, add a package', new_package_path
-
+.row
+  .col-md-12
+    = link_to 'New package', new_package_path, class: 'btn btn-default'
+.row
+  .col-md-12
+    &nbsp;
 - @packages.each do |package|
   .row
     .col-md-12
