@@ -24,5 +24,14 @@ test:
   database: packing-list_test
 
 production:
-  <<: *default
-  database: packing-list_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  database: packinglist
+  username: <%= ENV["PROD_DB_USER"] %>
+  password: <%= ENV["PROD_DB_PASSWORD"] %>
+  host: <%= ENV["PROD_DB_HOST"] %>
+
+
+
