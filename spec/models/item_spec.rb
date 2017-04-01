@@ -8,5 +8,7 @@ RSpec.describe Item, type: :model do
   it { should allow_value(Date.yesterday).for(:bought_on) }
   it { should_not allow_value(Date.tomorrow).for(:bought_on) }
 
-  it {should have_many :documents}
+  it { should have_many :documents }
+  it { should have_many(:packages).through(:package_items) }
+  it { should have_many :package_items }
 end

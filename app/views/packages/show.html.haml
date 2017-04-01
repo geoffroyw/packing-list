@@ -4,6 +4,10 @@
   %b Name:
   = @package.name
 
+= link_to 'View items', package_items_path(@package)
+\|
+= link_to 'Add item', new_package_item_path(@package)
+\|
 = link_to 'Edit', edit_package_path(@package)
 \|
 = link_to 'Back', packages_path

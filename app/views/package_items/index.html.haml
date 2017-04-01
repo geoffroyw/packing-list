@@ -1,0 +1,23 @@
+%h1
+  Listing Items in package
+  = @package.name
+
+%table
+  %thead
+    %tr
+      %th Quantity
+      %th Item
+      %th
+      %th
+
+  %tbody
+    - @package_items.each do |package_item|
+      %tr
+        %td= package_item.quantity
+        %td= package_item.item.name
+        %td= link_to 'Edit', edit_package_item_path(package_item.package, package_item)
+        %td= link_to 'Destroy', package_item_path(package_item.package,package_item), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Add Package item', new_package_item_path

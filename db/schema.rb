@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401140624) do
+ActiveRecord::Schema.define(version: 20170401143135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,22 @@ ActiveRecord::Schema.define(version: 20170401140624) do
     t.string   "serial_number"
   end
 
+  create_table "package_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "package_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_package_items_on_item_id", using: :btree
+    t.index ["package_id"], name: "index_package_items_on_package_id", using: :btree
+  end
+
   create_table "packages", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "package_items", "items"
+  add_foreign_key "package_items", "packages"
 end
