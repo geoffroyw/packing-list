@@ -14,6 +14,6 @@ RSpec.describe "packages/index", type: :view do
 
   it "renders a list of packages" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select ".panel-heading", :text => "Name".to_s, :count => 2
   end
 end
