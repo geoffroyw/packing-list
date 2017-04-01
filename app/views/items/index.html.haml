@@ -1,30 +1,6 @@
-%h1 Listing items
+%h1 All items
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Quantity
-      %th Original price
-      %th Replacement price
-      %th Bought on
-      %th Serial number
-      %th
-      %th
-      %th
-
-  %tbody
-    - @items.each do |item|
-      %tr
-        %td= item.name
-        %td= item.quantity
-        %td= "#{item.original_price} #{item.original_currency}"
-        %td= "#{item.replacement_price} #{item.replacement_currency}"
-        %td= item.bought_on
-        %td= item.serial_number
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'items_table'
 
 %br
 

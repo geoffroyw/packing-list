@@ -1,19 +1,24 @@
-.row
-  .col-md-12
-    %h1.text-center Packages
-
 -unless @packages
   = link_to 'To get started, add a package', new_package_path
-
-- @packages.each do |package|
+-if @unpacked_items
   .row
     .col-md-12
+      .alert.alert-danger
+        You have
+        =@unpacked_items.count
+        unpacked items
+        =link_to 'See those items', unpacked_items_path
+
+
+.row
+  - @packages.each_with_index do |package, i|
+    .col-md-6
       .panel.panel-default
         .panel-heading
           %h4= package.name
         .panel-body
           .row
-            .col-md-4
+            .col-md-8
               %ul
                 %li
                   %strong Number of different items:
@@ -21,7 +26,7 @@
                 %li
                   %strong Number of items:
                   = package.total_number_of_items
-            .col-md-2.col-md-offset-6
+            .col-md-2
               =link_to 'Add an item', new_package_item_path(package), class: 'btn btn-default'
             .col-md-12
               %table.table.table-striped.table-responsive
@@ -40,4 +45,6 @@
                         \/
                         =package_item.item.quantity
                       %td= link_to 'Edit', edit_package_item_path(package_item.package, package_item)
-                      %td= link_to 'Destroy', package_item_path(package_item.package,package_item), :method => :delete, :data => { :confirm => 'Are you sure?' }
+                      %td= link_to 'Remove', package_item_path(package_item.package,package_item), :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if i%2==1
+      .clearfix

@@ -26,7 +26,8 @@
               =link_to 'Packages', packages_path
             %li{:class => (controller_name == 'items' ? 'active' : '')}
               =link_to 'Items', items_path
-    .container-fluid
+    .container
+      %br
       = yield
 
 
