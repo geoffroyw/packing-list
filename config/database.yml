@@ -31,7 +31,7 @@ production:
   database: packinglist
   username: <%= ENV["PROD_DB_USER"] %>
   password: <%= ENV["PROD_DB_PASSWORD"] %>
-  host: <%= ENV["PROD_DB_HOST"] %>
+  socket: <%= ENV["PROD_DB_SOCKET"] %>
 
 
 
