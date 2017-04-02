@@ -31,6 +31,16 @@
                 =link_to 'Log out', destroy_user_session_path, :method => :delete
     .container
       %br
+      -if flash[:notice]
+        .row
+        .col-md-12
+          .alert.alert-info
+            =flash[:notice]
+      -if flash[:error]
+        .row
+        .col-md-12
+          .alert.alert-danger
+            =flash[:error]
       = yield
 
 
