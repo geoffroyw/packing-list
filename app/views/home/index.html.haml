@@ -1,6 +1,6 @@
 -unless @packages
   = link_to 'To get started, add a package', new_package_path
--if @unpacked_items
+-if @unpacked_items.count > 0
   .row
     .col-md-12
       .alert.alert-danger
