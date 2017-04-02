@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170401143135) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "item_documents", force: :cascade do |t|
+  create_table "item_documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "item_id"
     t.string   "name"
     t.datetime "created_at", null: false
@@ -23,20 +20,20 @@ ActiveRecord::Schema.define(version: 20170401143135) do
     t.index ["item_id"], name: "index_item_documents_on_item_id", using: :btree
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
-    t.integer  "quantity",             default: 1
-    t.float    "original_price"
+    t.integer  "quantity",                        default: 1
+    t.float    "original_price",       limit: 24
     t.string   "original_currency"
     t.date     "bought_on"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.float    "replacement_price"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.float    "replacement_price",    limit: 24
     t.string   "replacement_currency"
     t.string   "serial_number"
   end
 
-  create_table "package_items", force: :cascade do |t|
+  create_table "package_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "quantity"
     t.integer  "package_id"
     t.integer  "item_id"
@@ -46,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170401143135) do
     t.index ["package_id"], name: "index_package_items_on_package_id", using: :btree
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

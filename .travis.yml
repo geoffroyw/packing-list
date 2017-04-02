@@ -3,10 +3,12 @@ rvm:
   - 2.3.0
 
 services:
-  - postgresql
+  - mysql
+
+before_instal:
+  - mysql -e 'CREATE DATABASE packing-list_test
 
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.travis.yml config/database.yml
 
 cache: bundle

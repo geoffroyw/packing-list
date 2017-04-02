@@ -5,16 +5,16 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   pool: 5
   timeout: 5000
-  username: packing-list
+  username: packinglist
   password:
 
 development:
   <<: *default
-  database: packing-list_development
+  database: packing-list_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,7 +24,7 @@ test:
   database: packing-list_test
 
 production:
-  adapter: postgresql
+  adapter: mysql
   encoding: unicode
   pool: 5
   timeout: 5000
