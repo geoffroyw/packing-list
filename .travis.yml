@@ -5,10 +5,8 @@ rvm:
 services:
   - mysql
 
-before_instal:
-  - mysql -e 'CREATE DATABASE packinglist_test;'
-
 before_script:
+  - mysql -e 'CREATE DATABASE packinglist_test;'
   - cp config/database.travis.yml config/database.yml
 
 cache: bundle
