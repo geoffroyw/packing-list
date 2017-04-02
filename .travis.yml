@@ -6,7 +6,7 @@ services:
   - mysql
 
 before_instal:
-  - mysql -e 'CREATE DATABASE packing-list_test
+  - mysql -e 'CREATE DATABASE packinglist_test;'
 
 before_script:
   - cp config/database.travis.yml config/database.yml
