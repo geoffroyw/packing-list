@@ -8,7 +8,7 @@
 
   .field
     = f.label :item
-    = f.collection_select(:item_id, Item.all, :id, :name)
+    = f.collection_select(:item_id, Item.unpacked, :id, :name)
   .field
     = f.label :quantity
     = f.number_field :quantity
