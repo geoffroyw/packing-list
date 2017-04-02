@@ -24,8 +24,8 @@ test:
   database: packing-list_test
 
 production:
-  adapter: mysql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   pool: 5
   timeout: 5000
   database: packinglist
