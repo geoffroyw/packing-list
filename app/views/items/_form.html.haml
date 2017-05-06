@@ -33,7 +33,7 @@
   .form-group
     = f.label :bought_on, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.date_select :bought_on, class: 'form-control'
+      = f.date_select :bought_on, {:include_blank => true, :default => nil}, class: 'form-control'
   .form-group
     = f.label :serial_number, class: 'col-sm-2 control-label'
     .col-sm-10
