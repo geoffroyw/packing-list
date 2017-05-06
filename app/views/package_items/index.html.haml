@@ -11,7 +11,7 @@
       %th
 
   %tbody
-    - @package_items.each do |package_item|
+    - @package.items.each do |package_item|
       %tr
         %td= package_item.quantity
         %td= package_item.item.name

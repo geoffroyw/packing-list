@@ -5,7 +5,7 @@ class PackageItemsController < ApplicationController
   # GET /package_items
   # GET /package_items.json
   def index
-    @package_items = PackageItem.all
+    @package_items = @package.package_items
   end
 
   # GET /package_items/1
