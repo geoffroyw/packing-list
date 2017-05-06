@@ -31,6 +31,7 @@
                   %tr
                     %th Item
                     %th Quantity
+                    %th Replacement price
                     %th
                     %th
                 %tbody
@@ -41,5 +42,8 @@
                         =package_item.quantity
                         \/
                         =package_item.item.quantity
+                      %td
+                        = package_item.item.replacement_price
+                        = package_item.item.replacement_currency
                       %td= link_to 'Edit', edit_package_item_path(package_item.package, package_item)
                       %td= link_to 'Destroy', package_item_path(package_item.package,package_item), :method => :delete, :data => { :confirm => 'Are you sure?' }
